@@ -1,0 +1,5 @@
+Problem Statement: HR015 feed taking significant time in processing, loading and sending into the FTP server. 
+Solution/Goal statement: Bottleneck analysis indicate fetching the records from the source postgre SQL incurred most of time and process. 
+To increase the performance and to reduce the time, partitioning was implemented at the source level which increased the records
+through put in turn decreased the job run time. The solution has been implemented across all the long running feeds and saved
+significant time and CPU resource
