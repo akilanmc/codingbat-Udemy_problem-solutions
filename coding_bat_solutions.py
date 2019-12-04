@@ -123,11 +123,11 @@ for x in nums:
     else:
         px = x
 
+print(has22)
+
 # Given a non-empty string like "Code" return a string like "CCoCodCode"
 
 text = 'Code'
-print(has22)
-
 i = 0
 sum_str = ''
 
