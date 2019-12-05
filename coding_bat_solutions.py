@@ -136,3 +136,77 @@ while i < len(text):
     i += 1
 
 print(sum_str)
+
+# Given a string, return the count of the number of times that a substring length 2 appears in the string
+# and also as the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end substring).
+
+text = 'axxxaaxx'
+key = text[len(text) - 2:]          # Getting the recurring substring
+count = 0
+
+if key in text:                     # Only move into the for loop if there is any key in the given input
+    for x in range(len(text) - 2):  # Iterate till the last string excluding the key
+        sub_str = text[x:x + 2]
+        if sub_str == key:          # Compare and increment the count value on match
+            count += 1
+print(count)
+
+# Given an array of ints, return True if one of the first 4 elements in the array is a 9.
+# The array length may be less than 4
+
+nums = [1, 2, 3, 4, 5]
+count = 0
+nine = False
+
+for x in nums:
+    count += 1
+    if x == 9 and count < 5:
+        nine = True
+    elif count == 5:
+        break
+
+print(nine)
+
+# Given an array of ints, return True if the sequence of numbers 1, 2, 3 appears in the array somewhere
+
+nums = [1, 1, 2, 1, 2, 3]
+
+if 1 in nums and 2 in nums and 3 in nums:
+    print(True)
+else:
+    print(False)
+
+# Given 2 strings, a and b, return the number of the positions where they contain the same length 2 substring.
+# So "xxcaazz" and "xxbaaz" yields 3, since the "xx", "aa", and "az" substrings appear in the same place in both strings
+
+a = 'aabbccdd'
+b = 'abbbxxd'
+str_length = min(len(a), len(b))
+count = 0
+
+# without the -1 in the for loop, when the control reaches the end of the string,
+# it will take the length of substring as 1 as opposed to 2 Eg, at the last when x value
+# reaches 7, the substring value of b would be 'd'
+
+for x in range(str_length -1):
+    a_sub_str = a[x:x + 2]
+    b_sub_str = b[x:x + 2]
+    if a_sub_str == b_sub_str:
+        count += 1
+
+print(count)
+
+# Alternative solution to a similar problem expect we check the a substring across all the index of b
+
+a = 'xxcaazz'
+b = 'xxbaaz'
+count = 0
+
+for x in range(len(a)-1):
+    sub_str_a = a[x:x + 2]
+    for y in range(len(b)-1):
+        sub_str_b = b[y:y + 2]
+        if sub_str_a == sub_str_b:
+            count += 1
+
+print(count)
