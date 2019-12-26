@@ -77,3 +77,71 @@ def has33_v1(*args):
   return False
 
 print(has33_v1(3, 0, 0, 3))
+
+# PAPER DOLL: Given a string, return a string where for every character in the original there are three characters
+def paper_doll(text):
+  paperdoll = ''
+  for x in text:
+    paperdoll += x*3
+  return paperdoll
+
+print(paper_doll('hey'))
+
+# BLACKJACK: Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum. 
+# If their sum exceeds 21 and there's an eleven, reduce the total sum by 10. Finally, 
+# if the sum (even after adjustment) exceeds 21, return 'BUST
+def blackjack(*args):
+  args_sum = sum(args)
+  if args_sum <= 21:
+    return args_sum
+  elif 11 in args:
+    if args_sum - 10 <= 21:
+      return args_sum - 10
+  return 'BUST'
+
+print(blackjack(11, 10, 11))
+
+# SUMMER OF '69: Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and 
+# extending to the next 9 (every 6 will be followed by at least one 9). Return 0 for no numbers
+def summer_69(nums):
+  sum_num = 0
+  skip = 0
+  for x in nums:
+    if skip == 0 and x != 6:
+      sum_num += x
+    elif x == 6:
+      skip = 1
+    elif x == 9:
+      skip = 0
+  return sum_num
+
+print(summer_69([2, 1, 6, 9, 11]))
+
+# SPY GAME: Write a function that takes in a list of integers and returns True if it contains 007 in order
+# As per the problem statement, 007 can be present in non sequenctially but if it needs to be present in 
+# Sequential mannner, disable the else comment section. That will do the job
+def spy_game(nums):
+  px = 1
+  ppx = 1
+  for x in nums:
+    if x == 7 and px == 0 and ppx == 0:
+      return True
+    elif x == 0 and px == 1:
+      px = 0
+    elif x == 0 and px == 0:
+      ppx = 0
+    #else:
+      #px = 1
+      #ppx = 1
+  return False
+
+print(spy_game([1,2,4,0,0,1,5]))
+
+def count_prime(num):
+  prime = True
+  for x in range(2,num):
+    if num % x == 0:
+      prime = False
+  return prime
+
+print(count_prime(11))
