@@ -137,11 +137,19 @@ def spy_game(nums):
 
 print(spy_game([1,2,4,0,0,1,5]))
 
-def count_prime(num):
-  prime = True
+# COUNT PRIMES: Write a function that returns the number of prime numbers that exist up to and including a given number
+# Prime function checks the num is prime or not and the count prime funtion counts the prime numbers within the given range
+def prime(num):
+  prime = 1
   for x in range(2,num):
     if num % x == 0:
-      prime = False
+      prime = 0
   return prime
 
-print(count_prime(11))
+def count_prime(num):
+  count = 0
+  for x in range(2, num+1):
+    count += prime(x)
+  return count
+
+print(count_prime(100))
